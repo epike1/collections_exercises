@@ -3,12 +3,14 @@
 
 import exampleClasses.arrayListExample.*;
 import exampleClasses.linkedListExample.*;
+import exampleClasses.mapExample.*;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ArrayListExample.runExample(); // examples seperated into classes to improve organization
+        //ArrayListExample.runExample(); // examples separated into classes to improve organization
         //LinkedListsExample();
+    	MapExample.runExample();
     }
 }
