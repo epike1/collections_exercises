@@ -49,7 +49,7 @@ public class Cart {
             System.out.printf("%nCart Items:%n");
 
             for (StoreItem i : storeItemList) {
-                System.out.printf("%-25s: %10.2f%n", i.getName(), i.getCost());
+                System.out.printf("%-25s %10.2f%n", i.getName() + ":", i.getCost());
             }
         } else {
             System.out.println("No items in cart.");

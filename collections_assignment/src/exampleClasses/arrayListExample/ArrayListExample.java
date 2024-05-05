@@ -1,6 +1,8 @@
 package exampleClasses.arrayListExample;
 
 import java.util.Scanner;
+import exampleClasses.outputFunctions;
+
 
 public class ArrayListExample {
     private static void displayArrayListOptions() {
@@ -25,6 +27,8 @@ public class ArrayListExample {
 
 
         do {
+        	
+        	outputFunctions.delay(500);
 
             System.out.print("Enter the cost of the item: ");
 
@@ -43,21 +47,25 @@ public class ArrayListExample {
             }
 
         } while(true);
+        
+        input.close();
 
         storeItem = new StoreItem(name, cost);
-        System.out.printf("Added to cart.%n");
+        System.out.printf("Added to cart.%n%n");
+        outputFunctions.delay(500);
 
         return storeItem;
     }
     public static void runExample(){
 
         Scanner input = new Scanner(System.in);
-        Cart cart = new Cart(); // cart class contains the arraylist
+        Cart cart = new Cart(); // cart class contains the array list
 
         int choice = 0;
         boolean checkout = false;
 
         do {
+        	outputFunctions.delay(500);
             displayArrayListOptions();
 
             try {
@@ -77,12 +85,15 @@ public class ArrayListExample {
                     System.out.printf("%n%nEnter the name of the item you want to remove: ");
                     String name = input.nextLine();
                     cart.removeItem(name);
+                    outputFunctions.delay(500);
+                    System.out.println("");
                     break;
                 case 3:
                     cart.displayCartItems();
                     break;
                 case 4:
                     System.out.printf("%n%nProceeding to checkout.%n");
+                    outputFunctions.delay(1500);
                     checkout = true;
                     break;
                 default:
@@ -91,17 +102,20 @@ public class ArrayListExample {
             }
 
         } while(!checkout);
+        
+        input.close();
 
         double totalCost = 0.00;
 
         System.out.println("\nReceipt:");
         for (StoreItem i : cart.getStoreItemList()) {
-            System.out.printf("%-25s: %10.2f%n", i.getName(), i.getCost());
+            System.out.printf("%-25s %10.2f%n", i.getName() + ":", i.getCost());
 
             totalCost += i.getCost();
+            outputFunctions.delay(500);
         }
 
-        System.out.printf("%n%-25s: %10.2f", "Total", totalCost);
+        System.out.printf("%n%-25s %10.2f", "Tota:l", totalCost);
 
 
         input.close();

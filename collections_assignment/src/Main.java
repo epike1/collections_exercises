@@ -4,13 +4,27 @@
 import exampleClasses.arrayListExample.*;
 import exampleClasses.linkedListExample.*;
 import exampleClasses.mapExample.*;
-
+import exampleClasses.queueExample.*;
+import votingSystemClasses.*;
+import java.util.ArrayList;
 public class Main {
 
+	public static void runVotingSystem() {
+		
+		ArrayList<Candidate> candidateList = VotingSystem.getCandidates();
+		
+		VotingSystem.askForVotes(candidateList);
+		
+		VotingSystem.determineWinner(candidateList);
+	}
+	
+	
     public static void main(String[] args) {
 
         //ArrayListExample.runExample(); // examples separated into classes to improve organization
-        //LinkedListsExample();
-    	MapExample.runExample();
+        //LinkedListsExample.runExample();
+    	//QueueExample.runExample();
+    	//MapExample.runExample();
+    	runVotingSystem();
     }
 }
