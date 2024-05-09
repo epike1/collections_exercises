@@ -17,13 +17,17 @@ public class ArrayListExample {
     }
 
     private static StoreItem createStoreItem() {
+
         Scanner input = new Scanner(System.in);
         StoreItem storeItem;
         String name = "";
         double cost = 0.00;
 
         System.out.printf("%n%nEnter the name of the item: ");
-        name = input.nextLine().trim();
+
+        name = input.nextLine();
+        name = name.trim().toLowerCase();
+
 
 
         do {
@@ -47,8 +51,6 @@ public class ArrayListExample {
             }
 
         } while(true);
-        
-        input.close();
 
         storeItem = new StoreItem(name, cost);
         System.out.printf("Added to cart.%n%n");
@@ -56,16 +58,14 @@ public class ArrayListExample {
 
         return storeItem;
     }
-    public static void runExample(){
+
+    private static int getChoice() {
 
         Scanner input = new Scanner(System.in);
-        Cart cart = new Cart(); // cart class contains the array list
-
-        int choice = 0;
-        boolean checkout = false;
+        int choice;
 
         do {
-        	outputFunctions.delay(500);
+            outputFunctions.delay(500);
             displayArrayListOptions();
 
             try {
@@ -75,19 +75,37 @@ public class ArrayListExample {
                 input.next();
                 continue;
             }
-            input.nextLine();
 
-            switch(choice) {
+            break;
+
+        } while (true);
+        return choice;
+    }
+
+    public static void removeItem(Cart cart) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.printf("%n%nEnter the name of the item you want to remove: ");
+        String name = input.nextLine();
+        cart.removeItem(name);
+        outputFunctions.delay(500);
+        System.out.println();
+
+    }
+
+    public static void runExample(){
+        Cart cart = new Cart(); // cart class contains the array list
+
+        boolean checkout = false;
+
+        do {
+            switch(getChoice()) {
                 case 1:
                     cart.addToCart(createStoreItem());
                     break;
                 case 2:
-                    System.out.printf("%n%nEnter the name of the item you want to remove: ");
-                    String name = input.nextLine();
-                    cart.removeItem(name);
-                    outputFunctions.delay(500);
-                    System.out.println("");
-                    break;
+                   removeItem(cart);
+                   break;
                 case 3:
                     cart.displayCartItems();
                     break;
@@ -102,8 +120,6 @@ public class ArrayListExample {
             }
 
         } while(!checkout);
-        
-        input.close();
 
         double totalCost = 0.00;
 
@@ -115,11 +131,7 @@ public class ArrayListExample {
             outputFunctions.delay(500);
         }
 
-        System.out.printf("%n%-25s %10.2f", "Tota:l", totalCost);
-
-
-        input.close();
-
+        System.out.printf("%n%-25s %10.2f", "Total:", totalCost);
     }
 
 }

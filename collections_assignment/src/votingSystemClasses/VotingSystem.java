@@ -9,7 +9,7 @@ public interface VotingSystem {
 	public static void askForVotes(ArrayList<Candidate> candidateList) {
 		
 		Scanner input = new Scanner(System.in);
-		int vote = 0;
+		int vote = -1;
 		
 		do {
 						
@@ -32,18 +32,17 @@ public interface VotingSystem {
 				
 			}
 			
-			if(vote == 0) {
-				
-			} else if (vote >= 1 && vote < candidateList.size()) {
-				incrementVote(candidateList.get(vote));
+			if (vote == 0) {
+				break;
+			} else if (vote >= 1 && vote <= candidateList.size()) {
+				incrementVote(candidateList.get(vote - 1));
 			} else {
 				System.out.println("Unable to determine candidate.");
 			}
 			
-		} while (vote != 0);
+		} while (true);
 		
 		
-		input.close();
 	}
 	
 	public static void incrementVote(Candidate candidate) {
@@ -105,8 +104,9 @@ public interface VotingSystem {
 				input.next();
 				continue;
 			}
+			break;
 			
-		} while (false);
+		} while (true);
 				
 		input.nextLine();
 		for (int i = 0 ; i < numOfCandidates ; i++) {
@@ -116,7 +116,6 @@ public interface VotingSystem {
 			
 		}
 		
-		input.close();
 		return candidateList;
 	}
 }

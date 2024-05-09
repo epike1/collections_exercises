@@ -22,12 +22,11 @@ public class Main {
 	
     public static void main(String[] args) {
 
-        ArrayListExample.runExample(); // examples separated into classes to improve organization
+        //ArrayListExample.runExample(); // examples separated into classes to improve organization
         //LinkedListExample.runExample();
     	//QueueExample.runExample();
     	//MapExample.runExample();
-    	//SetExample.runExample();
+    	SetExample.runExample();
     	//runVotingSystem();
-    	
     }
 }
