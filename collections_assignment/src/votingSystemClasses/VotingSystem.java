@@ -10,12 +10,9 @@ public interface VotingSystem {
 		
 		Scanner input = new Scanner(System.in);
 		int vote = 0;
-		boolean invalidInput;
 		
 		do {
-			
-			invalidInput = false;
-			
+						
 			System.out.println("\nPlease vote for one of the following candidates (0 to stop):");
 			
 			for (int i = 0 ; i < candidateList.size() ; i++) {
@@ -32,7 +29,7 @@ public interface VotingSystem {
 				
 				System.out.println("Invalid type. Must be an integer.");
 				input.next();
-				invalidInput = true;
+				
 			}
 			
 			if(vote == 0) {

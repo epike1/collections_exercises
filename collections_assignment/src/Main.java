@@ -5,6 +5,7 @@ import exampleClasses.arrayListExample.*;
 import exampleClasses.linkedListExample.*;
 import exampleClasses.mapExample.*;
 import exampleClasses.queueExample.*;
+import exampleClasses.setExample.*;
 import votingSystemClasses.*;
 import java.util.ArrayList;
 public class Main {
@@ -21,10 +22,12 @@ public class Main {
 	
     public static void main(String[] args) {
 
-        //ArrayListExample.runExample(); // examples separated into classes to improve organization
-        //LinkedListsExample.runExample();
+        ArrayListExample.runExample(); // examples separated into classes to improve organization
+        //LinkedListExample.runExample();
     	//QueueExample.runExample();
     	//MapExample.runExample();
-    	runVotingSystem();
+    	//SetExample.runExample();
+    	//runVotingSystem();
+    	
     }
 }
